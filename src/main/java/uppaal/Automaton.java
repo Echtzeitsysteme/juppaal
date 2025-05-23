@@ -10,8 +10,8 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.jdom.Element;
-import org.jdom.filter.ElementFilter;
+import org.jdom2.Element;
+import org.jdom2.filter.ElementFilter;
 
 import uppaal.labels.Comment;
 import uppaal.labels.Guard;

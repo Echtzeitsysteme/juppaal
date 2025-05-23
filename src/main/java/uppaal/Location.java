@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.jdom.Element;
+import org.jdom2.Element;
 
 import uppaal.labels.Comment;
 import uppaal.labels.ExponentialRate;

@@ -8,14 +8,14 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.jdom.DocType;
-import org.jdom.Document;
-import org.jdom.Element;
-import org.jdom.JDOMException;
-import org.jdom.input.JDOMParseException;
-import org.jdom.input.SAXBuilder;
-import org.jdom.output.Format;
-import org.jdom.output.XMLOutputter;
+import org.jdom2.DocType;
+import org.jdom2.Document;
+import org.jdom2.Element;
+import org.jdom2.JDOMException;
+import org.jdom2.input.JDOMParseException;
+import org.jdom2.input.SAXBuilder;
+import org.jdom2.output.Format;
+import org.jdom2.output.XMLOutputter;
 
 
 public class NTA extends UppaalElement{
@@ -50,6 +50,10 @@ public class NTA extends UppaalElement{
 	
 	public NTA(String uppaalFile){
 		SAXBuilder builder = new SAXBuilder();
+    builder.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
+    builder.setFeature("http://xml.org/sax/features/validation", false);
+    builder.setFeature("http://xml.org/sax/features/external-general-entities", false);
+    builder.setFeature("http://xml.org/sax/features/external-parameter-entities", false);
 		try {
 			Document uppaalDoc = builder.build(uppaalFile);
 			@SuppressWarnings("unchecked")
@@ -64,7 +68,9 @@ public class NTA extends UppaalElement{
 					automata.add(automaton);
 				} else if (child.getName().equals("system")) {
 					systemDeclaration = new SystemDeclaration(child);
-				} else {
+				} else if (child.getName().equals("queries")) {
+          // TODO: add query handler
+        } else {
 					System.err.println("unhandled element: "+child.getName());
 				}
 			}

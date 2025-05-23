@@ -1,6 +1,6 @@
 package uppaal;
 
-import org.jdom.*;
+import org.jdom2.*;
 
 /**
  * Represents a name element

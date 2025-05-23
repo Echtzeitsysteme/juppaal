@@ -1,6 +1,6 @@
 package uppaal.labels;
 
-import org.jdom.*;
+import org.jdom2.*;
 
 import uppaal.PositionedUppaalElement;
 

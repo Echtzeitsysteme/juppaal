@@ -1,6 +1,6 @@
 package uppaal.labels;
 
-import org.jdom.Element;
+import org.jdom2.Element;
 
 
 public class Invariant extends Label{

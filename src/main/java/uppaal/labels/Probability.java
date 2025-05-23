@@ -3,7 +3,7 @@
  */
 package uppaal.labels;
 
-import org.jdom.Element;
+import org.jdom2.Element;
 /**
  * @author Kasper S. Luckow <luckow@cs.aau.dk>
  *

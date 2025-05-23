@@ -1,6 +1,6 @@
 package uppaal;
 
-import org.jdom.Element;
+import org.jdom2.Element;
 
 public class Parameters extends UppaalElement{
 	

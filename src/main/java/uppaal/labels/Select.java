@@ -3,7 +3,7 @@ package uppaal.labels;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.jdom.Element;
+import org.jdom2.Element;
 
 
 public class Select extends Label {
