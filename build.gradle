@@ -1,5 +1,5 @@
 apply plugin: 'java'
-apply plugin: 'maven'
+apply plugin: 'maven-publish'
 apply plugin: 'eclipse'
 
 group = 'dk.aau.cs.uppaal'
@@ -7,34 +7,37 @@ version = '1.0.0'
 
 description = "juppaal"
 
-sourceCompatibility = 1.7
-targetCompatibility = 1.7
+// sourceCompatibility = 1.7
+// targetCompatibility = 1.7
 
-task wrapper(type: Wrapper) {
-	 gradleVersion = '2.10' 
-}
+//task wrapper(type: Wrapper) {
+//	 gradleVersion = '2.10' 
+//}
 
 task fatJar(type: Jar) {
 	manifest {
         attributes 'Implementation-Title': 'JUppaal',  
         	'Implementation-Version': version
     }
-    baseName = project.name + '-all'
+    archiveBaseName = project.name + '-all'
     from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
     with jar
 }
 
 repositories {
-    maven { url "http://repo.maven.apache.org/maven2" }
-    maven { url "http://eulergui.sourceforge.net/maven2/" }
+    maven { url "https://repo.maven.apache.org/maven2" }
+    maven { url "https://eulergui.sourceforge.net/maven2/" }
     mavenLocal()
     mavenCentral()
 }
 
 dependencies {
-    compile group: 'org.jdom', name: 'jdom', version:'1.1'
-    compile group: 'jaxen', name: 'jaxen', version:'1.1.6'
-    compile group: 'att.grappa', name: 'grappa', version:'1.2'
-    testCompile group: 'junit', name: 'junit', version:'4.11'
-
+//    compile group: 'org.jdom', name: 'jdom', version:'1.1'
+    implementation group: 'org.jdom', name: 'jdom', version: '1.1'
+//    compile group: 'jaxen', name: 'jaxen', version:'1.1.6'
+    implementation group: 'jaxen', name: 'jaxen', version: '1.1.6'
+//   compile group: 'att.grappa', name: 'grappa', version:'1.2'
+    implementation group: 'att', name: 'grappa', version: '1.2'
+//    testCompile group: 'junit', name: 'junit', version:'4.11'
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '4.11'
 }
